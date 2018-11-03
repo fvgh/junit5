@@ -66,10 +66,9 @@ class BridgeMethodTests extends AbstractJupiterTestEngineTests {
 
 	@TestFactory
 	List<DynamicTest> ensureSingleTestMethodsExecute() {
-		return Arrays.asList(
-			dynamicTest("Byte", //
-				() -> assertEquals("[test(Byte) BEGIN, test(N), test(Byte) END.]", //
-					execute(1, ByteTestCase.class))),
+		return Arrays.asList(dynamicTest("Byte", //
+			() -> assertEquals("[test(Byte) BEGIN, test(N), test(Byte) END.]", //
+				execute(1, ByteTestCase.class))),
 			dynamicTest("Short", //
 				() -> assertEquals("[test(Short) BEGIN, test(N), test(Short) END.]", //
 					execute(1, ShortTestCase.class))));

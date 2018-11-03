@@ -137,11 +137,10 @@ class ExceptionHandlingTests extends AbstractJupiterTestEngineTests {
 			event(engine(), started()), //
 			event(container(FailureTestCase.class), started()), //
 			event(test("testWithUncheckedException"), started()), //
-			event(test("testWithUncheckedException"),
-				finishedWithFailure(allOf( //
-					isA(RuntimeException.class), //
-					message("unchecked"), //
-					suppressed(0, allOf(isA(IOException.class), message("checked")))))), //
+			event(test("testWithUncheckedException"), finishedWithFailure(allOf( //
+				isA(RuntimeException.class), //
+				message("unchecked"), //
+				suppressed(0, allOf(isA(IOException.class), message("checked")))))), //
 			event(container(FailureTestCase.class), finishedSuccessfully()), //
 			event(engine(), finishedSuccessfully()));
 	}
