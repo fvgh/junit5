@@ -243,7 +243,8 @@ class AdderTest {
 	private void succeedingTestFile() {
 		Path testPath = Paths.get(testProjectDir.root.toString(), 'src', 'test', 'java', 'org', 'junit', 'gradletest', 'AdderTest.java')
 		Files.createDirectories(testPath.parent)
-		testPath.withWriter { it.write('''
+		testPath.withWriter {
+			it.write('''
 package org.junit.gradletest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

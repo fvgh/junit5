@@ -7,11 +7,11 @@ buildscript {
 		maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
 	}
 	dependencies {
-		classpath 'com.diffplug.spotless:spotless-plugin-gradle:3.21.0-SNAPSHOT'
 		classpath 'org.ajoberstar:gradle-git:1.7.0'
 		classpath 'org.ajoberstar:gradle-git-publish:0.2.1'
 		classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.0-SNAPSHOT'
 		classpath 'com.github.ben-manes:gradle-versions-plugin:0.14.0'
+		classpath 'com.diffplug.spotless:spotless-plugin-gradle:3.24.0-SNAPSHOT'
 	}
 }
 
@@ -29,7 +29,7 @@ ext {
 	generateManifest = false
 	buildDate = new SimpleDateFormat('yyyy-MM-dd').format(buildTimeAndDate)
 	buildTime = new SimpleDateFormat('HH:mm:ss.SSSZ').format(buildTimeAndDate)
-	buildRevision = versioning.info.commit
+	buildRevision = "0.0.0" //versioning.info.commit not used due to known Spotless JGIT problem
 	builtByValue = project.hasProperty('builtBy') ? project.builtBy : project.defaultBuiltBy
 
 	platformProjects = [
