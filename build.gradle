@@ -9,9 +9,9 @@ buildscript {
 	dependencies {
 		classpath 'org.ajoberstar:gradle-git:1.7.0'
 		classpath 'org.ajoberstar:gradle-git-publish:0.2.1'
-		classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.0-SNAPSHOT'
+		classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.0'
 		classpath 'com.github.ben-manes:gradle-versions-plugin:0.14.0'
-		classpath 'com.diffplug.spotless:spotless-plugin-gradle:3.24.0-SNAPSHOT'
+		classpath 'com.diffplug.spotless:spotless-plugin-gradle:5.2.0-SNAPSHOT'
 	}
 }
 
@@ -79,7 +79,7 @@ allprojects { subproj ->
 	apply plugin: 'java-library'
 	apply plugin: 'eclipse'
 	apply plugin: 'idea'
-	apply plugin: 'com.diffplug.gradle.spotless'
+	apply plugin: 'com.diffplug.spotless'
 	apply plugin: 'checkstyle'
 	apply plugin: 'com.github.ben-manes.versions' // gradle dependencyUpdates
 	apply from: "$rootDir/gradle/degraph.gradle"
@@ -573,10 +573,5 @@ configure(rootProject) {
 
 	gitPublishCommit.dependsOn(prepareDocsForUploadToGhPages)
 	gitPublishCommit.dependsOn(createCurrentDocsFolder)
-
-	task wrapper(type: Wrapper) {
-		description = 'Generates gradlew and gradlew.bat scripts'
-		gradleVersion = '4.0'
-	}
 
 }
